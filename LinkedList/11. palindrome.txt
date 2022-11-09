@@ -1,0 +1,18 @@
+bool isPalin(){
+        Node* temp= head;
+        stack <int> s;
+        while(temp != NULL){
+                s.push(temp->data);
+                temp = temp->ptr;
+        }
+        while(head != NULL ){
+            
+            int i=s.top();
+            s.pop();
+            if(head -> data != i){
+                return false;
+            }
+        head=head->ptr;
+        }
+return true;
+}

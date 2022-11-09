@@ -1,0 +1,22 @@
+void skipMdeleteN( int M, int N)
+{
+    Node temp = head;
+    Node t;
+    int count;
+    while (temp!=NULL)
+    {
+        for (count = 1; count  M && temp!= NULL; count++)
+            temp = temp-next;
+        if (temp == NULL)
+            return;
+        t = temp-next;
+        for (count = 1; count=N && t!= NULL; count++)
+        {
+            Node temp = t;
+            t = t-next;
+            delete temp;
+        }
+        temp-next = t;
+        temp = t;
+    }
+}

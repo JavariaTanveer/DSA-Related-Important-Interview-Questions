@@ -1,0 +1,21 @@
+void rotate(int k)
+{
+    if (k == 0)
+    return; //no rotation basically
+    Node* temp = head;
+    int count = 1;
+    while (count < k && temp != NULL)
+    {
+        temp = temp->next;
+        count++;
+    }
+    if (temp == NULL)
+        return;
+
+    Node* kthNode = temp;
+    while (temp->next != NULL)
+        temp = temp->next;
+       temp->next = head;
+       head= kthNode->next;
+        kthNode->next = NULL;
+}

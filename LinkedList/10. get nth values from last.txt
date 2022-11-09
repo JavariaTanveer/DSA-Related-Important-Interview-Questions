@@ -1,0 +1,19 @@
+int getNthFromLast(int n)
+{
+	Node *temp= head;
+	for (int i = 1; i < n; i++)
+    {
+	temp = temp->next;
+	    if (temp== NULL)
+        {
+        cout<<"list is empty";
+	    return -1;
+	    }	
+    }
+		while (temp->next != NULL){
+			temp = temp->next;
+			head = head->next;
+		}
+	
+    return head->data;
+}

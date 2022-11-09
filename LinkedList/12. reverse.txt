@@ -1,0 +1,57 @@
+Node* kAltReverse(struct Node* head, int k)
+{
+    Node* prev = NULL;
+    Node* curr = head;
+    Node* temp = NULL;
+    Node* tail = NULL;
+    Node* newHead = NULL;
+    Node* join = NULL;
+    int t = 0;
+ 
+    // Traverse till the end of the linked list
+    while (curr) {
+        t = k;
+        join = curr;
+        prev = NULL;
+ 
+        /* Reverse alternative group of k nodes
+        // of the given linked list */
+        while (curr && t--) {
+            temp = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = temp;
+        }
+ 
+        // Sets the new head of the input list
+        if (!newHead)
+            newHead = prev;
+ 
+        /* Tail pointer keeps track of the last node
+        of the k-reversed linked list. The tail pointer
+        is then joined with the first node of the
+        next k-nodes of the linked list */
+        if (tail)
+            tail->next = prev;
+ 
+        tail = join;
+        tail->next = curr;
+ 
+        t = k;
+ 
+        /* Traverse through the next k nodes
+        which will not be reversed */
+        while (curr && t--) {
+            prev = curr;
+            curr = curr->next;
+        }
+ 
+        /* Tail pointer keeps track of the last
+        node of the k nodes traversed above */
+        tail = prev;
+    }
+ 
+    // newHead is new head of the modified list
+    return newHead;
+}
+ 

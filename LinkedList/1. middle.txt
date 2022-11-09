@@ -1,0 +1,14 @@
+void printMiddle()
+{
+	Node *temp = head;
+	Node *temp1 = head;
+	if (head != NULL)
+	{
+	while (temp1 != NULL && temp1->next != NULL)
+	{
+	temp1 = temp1->next->next;
+	temp = temp->next;
+	}
+	cout << "The middle element is [" << temp->data << "]" << endl;
+    }
+}

@@ -1,0 +1,44 @@
+
+    void addOne()
+    {
+        Node *temp = head;
+        if (head->next == NULL)
+        {
+            head->data += 1;
+        }
+        Node *temp1 = head;
+        int prev;
+        while (temp1->next)
+        {
+            if (temp1->data != 9)
+            {
+                temp = temp1;
+            }
+            temp1 = temp1->next;
+        }
+        if (temp1->data == 9 && temp != NULL)
+        {
+            if (temp->data == 9 && temp == head)
+            {
+                Node *temp = new Node;
+                temp->next = head;
+                head = temp;
+                temp1 = temp;
+            }
+            else
+            {
+                temp1 = temp;
+                temp1->data += 1;
+                temp1 = temp1->next;
+            }
+            while (temp1)
+            {
+                temp1->data = 0;
+                temp1 = temp1->next;
+            }
+        }
+        else
+        {
+            temp1->data += 1;
+        }
+    }

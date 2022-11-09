@@ -1,0 +1,15 @@
+void reverse()
+{
+Node temp = head;
+Node prev = nullptr;
+Node next = nullptr;
+while (temp != NULL)
+{
+next = temp-getNext();
+temp-setnext(prev);
+prev = temp;
+temp = next;
+}
+head = prev;
+}
+};

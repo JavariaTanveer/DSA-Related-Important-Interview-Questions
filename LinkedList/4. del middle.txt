@@ -1,0 +1,13 @@
+void deleteMid()
+{
+Node* prev = NULL;
+Node* temp = head;
+Node* temp1 = head;
+while (temp1 && temp1->next != NULL)
+{
+temp1 = temp1->next->next;
+prev = temp;
+temp = temp->next;
+}
+prev->next = prev->next->next;
+}

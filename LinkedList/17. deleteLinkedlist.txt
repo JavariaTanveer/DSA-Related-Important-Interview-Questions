@@ -1,0 +1,12 @@
+void deleteAllNodes() 
+    {
+    Node* temp = head;
+    Node*next=NULL;
+    while(temp != NULL) {
+    next = temp->next;
+    delete temp;
+    temp=next;
+  }
+  head=NULL;
+  cout<<"\nAll nodes are deleted successfully"<<endl;
+} 
